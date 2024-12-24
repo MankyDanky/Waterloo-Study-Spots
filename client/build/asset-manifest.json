@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c6e91343.css",
+    "main.js": "/static/js/main.0ed97511.js",
+    "static/media/DCLib.jpg": "/static/media/DCLib.bba2adf59c6ff3879680.jpg",
+    "static/media/MathCnD.jpg": "/static/media/MathCnD.822f8a0f6cf6e7ffb1d1.jpg",
+    "static/media/test.jpg": "/static/media/test.822f8a0f6cf6e7ffb1d1.jpg",
+    "static/media/SLC.jpg": "/static/media/SLC.b86d80e2e312cd69479e.jpg",
+    "static/media/profile.webp": "/static/media/profile.7a6a6c54279a54d1977c.webp",
+    "index.html": "/index.html",
+    "main.c6e91343.css.map": "/static/css/main.c6e91343.css.map",
+    "main.0ed97511.js.map": "/static/js/main.0ed97511.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c6e91343.css",
+    "static/js/main.0ed97511.js"
+  ]
+}
