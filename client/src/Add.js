@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddImage from "./AddImage";
 
-
+// Add spot page
 function Add() {
     const {account} = useContext(AccountContext);
     const navigate = useNavigate();
@@ -15,6 +15,7 @@ function Add() {
     const [error, setError] = useState(null)
     const [submitting, setSubmitting] = useState(false);
 
+    // Submit spot
     async function submitSpot(e) {
         setSubmitting(true)
         const formData = new FormData();
@@ -45,10 +46,10 @@ function Add() {
             
         } catch (error) {
             console.log(error);
-        }
-        
+        }  
     }
 
+    // Tag text box updated
     function TagInputChanged(event) {
         const input = event.target.value;
         const lastChar = input.split('').pop()
@@ -61,12 +62,14 @@ function Add() {
         }
     }
     
+    // Tag cancel button clicked
     function TagCancelClicked(event) {
         const index = event.target.getAttribute("index");
         const element = tags.at(index);
         setTags(tags.filter(a => a !== element));
     }
 
+    // HTML
     return ( !account? <h1 className={`${theme}Text`}style={{marginTop: "40vh", fontFamily: "Barlow Condensed", fontSize: "10vh", fontWeight: "bold"}}>Please login</h1>:
         <div style={{marginTop: "10vh"}}>
             <div style={{width: "92vw", margin: "4vw", marginBottom: "1vw",  height: "34vw", display: "flex", paddingTop: "2vw"}}>

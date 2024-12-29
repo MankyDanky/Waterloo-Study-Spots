@@ -5,6 +5,7 @@ import profileImage from "./images/profile.webp";
 import {useParams} from 'react-router-dom';
 import Review from "./Review";
 
+// Spot details page
 function Details() {
     const {spotId} = useParams()
     const [tags, setTags] = useState([])
@@ -18,6 +19,7 @@ function Details() {
     const [icon, setIcon] = useState(null)
     const {account, setAccount} = useContext(AccountContext)
 
+    // Get whether the spot has already been reviewed by user
     function Reviewed() {
         for (let i = 0; i < reviews.length; i++) {
             if (reviews[i].username == account.username) {
@@ -27,6 +29,7 @@ function Details() {
         return false
     }
 
+    // Add review
     function AddReview(e) {
         const reviewDetails = {username: account.username, review: review, rating: reviewRating, spotId: spotId}
         try {
@@ -45,6 +48,7 @@ function Details() {
         }
     }
 
+    // Update spot information
     function effect() {
         try {
             fetch("/api/getSpot?id=" + spotId)
@@ -67,6 +71,7 @@ function Details() {
         setReviewRating(Number(e.target.getAttribute('index')) + 1);
     }
 
+    // Star components
     const stars = [];
     for (let i = 1; i <= rating; i++) {
         stars.push(<i className={"fa-solid fa-star"} key={i}></i>);
@@ -80,6 +85,7 @@ function Details() {
         reviewStars.push(<i className={((reviewRating > i)? "fa-solid" : "fa-regular") + " fa-star"} key={i} index={i} style={{cursor: "pointer"}} onClick={updateReviewRating}></i>)
     }
 
+    // HTML
     return (
         <>
             <div style={{display: "flex", width: "100vw", height: "25vw", marginTop: "10vh", textAlign: "left", alignItems: "center", paddingTop: "2.5vw", paddingBottom: "2.5vw", boxSizing: "border-box"}}>

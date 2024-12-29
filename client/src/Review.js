@@ -1,11 +1,13 @@
 import { ThemeContext, AccountContext } from "./App";
 import { useContext, useState, useEffect } from "react";
 
+// Review for details page
 function Review(props) {
     const {theme} = useContext(ThemeContext)
     const {account} = useContext(AccountContext)
     const [icon, setIcon] = useState(null);
 
+    // Delete review
     function deleteReview() {
         try {
             fetch("/api/deleteReview", {
@@ -22,6 +24,7 @@ function Review(props) {
         }
     }
 
+    // Get review details
     useEffect(() => {
         try {
             fetch("/api/getUser", {
@@ -42,6 +45,7 @@ function Review(props) {
         }
     }, [])
 
+    // HTML
     return (
         <div style={{ display: "flex", width: "100vw", height: "10vw", paddingLeft: "6vw", paddingRight: "10vw", boxSizing: "border-box", marginTop: "4vw"}}>
             <img src={icon} style={{objectFit: "cover", height: "4vw", width: "4vw",borderRadius: "3.5vw", marginBottom: "6vw", boxSizing: "border-box"}}></img>

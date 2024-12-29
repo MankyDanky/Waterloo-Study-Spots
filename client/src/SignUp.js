@@ -2,6 +2,7 @@ import { ThemeContext, AccountContext} from "./App";
 import { useContext, useState} from "react";
 import { useNavigate } from "react-router-dom";
 
+// Sign up page
 function SignUp() {
     const navigate = useNavigate();
     const {account, setAccount} = useContext(AccountContext);
@@ -18,6 +19,7 @@ function SignUp() {
         setRegistrationDetails({...registrationDetails, [e.target.name]: e.target.value})
     }
 
+    // Creat account or display error
     function registerAccount(e) {
         setSubmitting(true);
         try {
@@ -46,7 +48,7 @@ function SignUp() {
         }
     }
 
-    
+    // HTML
     return (
         <div className={"RegPage"}>
             <div className={`RegContainer ${theme}Background2`}>

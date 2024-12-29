@@ -2,6 +2,7 @@ import { ThemeContext, AccountContext} from "./App";
 import { useContext, useState} from "react";
 import { useNavigate } from "react-router-dom";
 
+// Login page
 function Login() {
     const navigate = useNavigate();
     const {theme, setTheme} = useContext(ThemeContext);
@@ -19,6 +20,7 @@ function Login() {
         setRegistrationDetails({...registrationDetails, [e.target.name]: e.target.value})
     }
 
+    // Check whether login attempt successful and login or display error 
     function loginAccount(e) {
         setSubmitting(true);
         try {
@@ -47,6 +49,7 @@ function Login() {
         }
     }
 
+    // HTML
     return (
         <div className={"RegPage"}>
             <div className={`RegContainer ${theme}Background2`}>

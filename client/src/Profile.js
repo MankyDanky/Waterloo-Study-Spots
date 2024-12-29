@@ -1,6 +1,7 @@
 import { ThemeContext, AccountContext} from "./App";
 import {useState, useContext, useEffect} from 'react';
 
+// Profile page
 function Profile() {
     const {account, setAccount} = useContext(AccountContext);
     const {theme} = useContext(ThemeContext);
@@ -9,6 +10,7 @@ function Profile() {
     const [error, setError] = useState("")
     const [submitting, setSubmitting] = useState(false)
 
+    // Icon updated
     async function submitIcon(e) {
         setSubmitting(true)
         const formData = new FormData();
@@ -46,6 +48,7 @@ function Profile() {
         
     }
 
+    // Get user data
     useEffect(()=> {
         if (account) {
             try {
@@ -68,6 +71,7 @@ function Profile() {
         }  
     }, [account])
 
+    // HTML
     return (!account? <h1 className={`${theme}Text`}style={{marginTop: "40vh", fontFamily: "Barlow Condensed", fontSize: "10vh", fontWeight: "bold"}}>Please login</h1>:
         <div style={{marginTop: "10vh", display: "flex", height: "90vh", alignItems: "center"}}>
             <div style={{width: "55vw", display: "block"}}>

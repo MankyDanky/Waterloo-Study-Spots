@@ -13,6 +13,7 @@ function Home() {
     const [topSpots, setTopSpots] = useState([]);
     let topRedirects = ["", "", ""];
 
+    // Get top ranked spots
     useEffect(() => {
         try {
             fetch("/api/getTop")
@@ -23,6 +24,8 @@ function Home() {
             console.log(error);
         }
     }, [])
+
+    // HTML
     return (
         <>
             <h1 className={`HomeTitle ${theme}Text`}>Where will you study today?</h1>

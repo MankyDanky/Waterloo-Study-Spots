@@ -12,6 +12,7 @@ console.log(process.env)
 const uri = 'mongodb+srv://'+ process.env.MONGO_URI +'.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 imgur2.setClientID("14f716e7085c0fd")
 
+// Connect MongoDB database
 async function connect() {
   try {
     await mongoose.connect(uri);
@@ -25,6 +26,7 @@ connect()
 
 
 
+// Define mongoose schema
 const reviewSchema = new mongoose.Schema({
   rating: {type: Number, min: 0, max: 5},
   review: String,

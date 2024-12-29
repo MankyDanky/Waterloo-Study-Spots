@@ -15,6 +15,7 @@ export const AccountContext = createContext(null);
 
 function App() {
 
+  // Contexts
   const [theme, setTheme] = useState('dark');
   const [account, setAccount] = useState(JSON.parse(localStorage.getItem("account")));
 
@@ -22,6 +23,7 @@ function App() {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };
 
+  // Router and theme wrapper
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}}>
       <AccountContext.Provider value={{account, setAccount}}>

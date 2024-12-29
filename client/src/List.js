@@ -3,10 +3,12 @@ import { ThemeContext } from "./App";
 import { useContext, useState, useEffect} from "react";
 import testImage from "./images/test.jpg";
 
+// Capitalize first letter of string function
 function capitalizeFirst(s) {
     return s.at(0).toUpperCase() + s.slice(1);
 }
 
+// List of all spots page
 function List(props) {
     const {search} = useParams();
     const navigate = useNavigate();
@@ -17,7 +19,9 @@ function List(props) {
     const [tags, setTags] = useState([])
     const [spots, setSpots] = useState([])
 
+    
     useEffect(()=> {
+        // Get tags for sidebar
         try {
             fetch("/api/getTags")
             .then((res) => res.json()).then((data) => {
@@ -29,6 +33,7 @@ function List(props) {
         } catch (error) {
             console.log(error);
         }
+        // Get all spots meeting filter criteria
         try {
             fetch("/api/getSpots?rating=" + ratingFilter + (tagFilter != "all"? "&tags=" + tagFilter:"") + (search? "&search=" + search : ""))
             .then((res) => res.json()).then((data) => {
@@ -39,6 +44,7 @@ function List(props) {
         }
     }, [ratingFilter, tagFilter])
 
+    // HTML
     return (
         <div style={{marginTop: "10vh", display: "flex", position: "relative"}}>
             <i className={`fa-solid fa-bars ${theme}Text`} style={{fontSize: "2vw", position: "absolute", left: "1vw", top: "1vw", cursor: "pointer"}} onClick={(event) => setSidebarDisplayed(true)}></i>

@@ -5,12 +5,14 @@ import slcImage from "./images/SLC.jpg";
 import dcLibImage from "./images/DCLib.jpg";
 import { ThemeContext } from "./App";
 
+// Image carousel for home page
 function Carousel() {
     const[offset, setOffset] = useState(0);
     const[transitionDirection, setTransitionDirection] = useState("Right");
     const images = [mathCnDImage, slcImage, dcLibImage];
     const {theme, toggleTheme} = useContext(ThemeContext);
 
+    // Slide current image
     function transitionRight (e) {
         setOffset(offset+1);
         setTransitionDirection("Right");
@@ -21,6 +23,7 @@ function Carousel() {
         setTransitionDirection("Left");
     }
 
+    // HTML
     return (
         <div className={"Carousel"}>
             <div style={{position: "absolute", left: "12.5vw", width: "75vw", height: "30vw", overflow: "hidden", borderRadius: "1vw"}}>

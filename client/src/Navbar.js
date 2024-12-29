@@ -2,6 +2,7 @@ import { useContext, useState, useRef, useEffect} from "react";
 import { ThemeContext, AccountContext} from "./App";
 import { useNavigate } from "react-router-dom";
 
+// Top navbar
 function Navbar() {
     const navigate = useNavigate();
     const {theme, toggleTheme} = useContext(ThemeContext);
@@ -13,6 +14,7 @@ function Navbar() {
     const accountWindowRef = useRef(null)
     const [searchNames, setSearchNames] = useState([])
     
+    // Get sptos for searchbar
     useEffect(() => {
         document.addEventListener("click", handleClick, true)
 
@@ -30,12 +32,14 @@ function Navbar() {
         }
     }, [])
 
+    // Hide account display if click outside
     function handleClick (e) {
         if (!accountWindowRef.current.contains(e.target)) {
             setAccountDisplayed(false);
         }
     }
 
+    // Signout and go to home page
     function signOut (e) {
         navigate("/");
         setAccount(null);
@@ -43,6 +47,7 @@ function Navbar() {
         localStorage.removeItem("account");
     }
 
+    // Searchbar updated and update search results
     function searchbarChanged(e) {
         let results = []
         setQuery(e.target.value);
@@ -60,6 +65,7 @@ function Navbar() {
         
     }
 
+    // HTML
     return (
         <div className={`Navbar ${theme}Background2`}>
             <a className={"LogoButton accentText"} onClick={() => {
